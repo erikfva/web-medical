@@ -9,17 +9,18 @@ $mail->IsSMTP();
 $mail->Mailer = "smtp";
 
 //Configuracion servidor mail
-//$mail->From = "sistemamedical.info@gmail.com"; //remitente
+
 $mail->SMTPDebug = 1;
 
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls'; //seguridad
-$mail->Host = "smtp.gmail.com"; // servidor smtp
-$mail->Port = 587; //puerto
-$mail->Username = 'sistemamedical.info@gmail.com'; //nombre usuario
-$mail->Password = '4rm4g3d0n'; //contraseña
 
-$to = "sistemamedical.info@gmail.com";
+$mail->Host = "SERVER-SMTP"; // servidor smtp
+
+$mail->Port = 587; //puerto
+$mail->Username = 'USER';
+$mail->Password = 'PASS';
+
 $from = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $csubject = $_REQUEST['subject'];
@@ -54,6 +55,8 @@ $body .= "</body></html>";
 //$send = mail($to, $subject, $body, $headers);
 $mail->IsHTML(true);
 
+$to = "sistemamedical.info@gmail.com";
+$from = "taiya04@twinducedz.com";
 //Agregar destinatario
 $mail->AddAddress($to);
 $mail->SetFrom($from, "Medic@l");
